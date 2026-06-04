@@ -2,7 +2,7 @@
 const http = require("http");
 const { Pool } = require("pg");
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // El pool se conecta usando DATABASE_URL (la inyecta docker-compose.yml).
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
