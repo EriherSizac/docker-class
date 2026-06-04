@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log
+.git
+.github
+infra
+nginx
+test
+*.md
+.env

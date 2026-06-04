@@ -1,0 +1,17 @@
+{
+  "name": "itc-implantacion-lab-db",
+  "version": "2.0.0",
+  "description": "Variante con base de datos: API + PostgreSQL con tabla sembrada por init.sql",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "pg": "^8.13.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}

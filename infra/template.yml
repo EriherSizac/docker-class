@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  Práctica de CloudFormation — crea un bucket S3 privado parametrizable.
+  Stack mínimo y sin costo si se destruye al terminar.
+
+Parameters:
+  NombreBucket:
+    Type: String
+    Description: Nombre global único del bucket (minúsculas, sin espacios).
+    AllowedPattern: "[a-z0-9.-]{3,63}"
+    ConstraintDescription: 3-63 caracteres, minúsculas, números, punto o guion.
+
+Resources:
+  MiBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref NombreBucket
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        - Key: Curso
+          Value: ImplantacionDeSoftware
+        - Key: Practica
+          Value: CloudFormation
+
+Outputs:
+  BucketName:
+    Description: Nombre del bucket creado
+    Value: !Ref MiBucket
+  BucketArn:
+    Description: ARN del bucket
+    Value: !GetAtt MiBucket.Arn
